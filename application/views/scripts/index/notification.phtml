@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php
+if(!isset($_GET['id']) )
+    die('Invalid Notification');
+
+
+$client_obj = new Application_Model_Client();
+?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    
+    
+<head>
+    <title>CCC KARUNAGAPPALLY</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="../assets/css/fontawesome.css">
+    <link rel="stylesheet" href="../assets/css/home.css">
+    <link rel="stylesheet" href="../assets/css/owl.css">
+    <link rel="stylesheet" href="../assets/css/gallery.css">
+    <link rel="stylesheet" href="../assets/css/lightbox.css">
+    <link rel="stylesheet" href="../assets/css/lightbox.min.css">
+
+
+<style>
+
+
+
+
+
+
+    h2 {
+        color: red;
+    }
+
+
+
+</style>
+
+
+</head>
+
+<body>
+
+
+
+
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <br><br><br><br><br><br><br>
+                <div class="section-heading" align="center">
+
+                </div>
+                <button onclick="goBack()" class="btn btn-success pull-right" style='margin-top:-120px'>Back</button>
+
+
+<h6 style='font color="white";margin-top:-40px'>
+    <font color="#000000"  style="white-space: pre-line;white-space: pre-wrap;">
+<?php
+$notification_rs=$client_obj->getNotificationList();
+$i=0;
+while($notification_row=$client_obj->fetch($notification_rs))
+{
+    if($_GET['id']!=0 && $_GET['id']!=$notification_row["notification_id"])
+        continue;
+    if($_GET['id']>0)
+        echo '<h2>'.$notification_row["notification_header"].'</h2><br>';
+    else
+        echo '<h4><a href="notification?id='.$notification_row["notification_id"].'">'.++$i.'. '.$notification_row["notification_header"].'</a></h4>';
+
+    if(isset($_GET['id']) && is_numeric($_GET['id']) && $_GET['id']>0)
+        echo $notification_row["notification_desc"];
+}
+?>
+</font>
+
+</h6>
+
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+   <!-- Scripts -->
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="../assets/js/lightbox-plus-jquery.min.js"></script>
+
+    <script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
+<script src="../vendor/jquery/jquery.min.js"></script>
+<script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script src="../assets/js/isotope.min.js"></script>
+<script src="../assets/js/owl-carousel.js"></script>
+<script src="../assets/js/lightbox.js"></script>
+<script src="../assets/js/tabs.js"></script>
+<script src="../assets/js/video.js"></script>
+<script src="../assets/js/slick-slider.js"></script>
+<script src="../assets/js/custom.js"></script>
+
+
+
+
+</body>
+
+
+</html>

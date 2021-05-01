@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<?php
+$client_obj = new Application_Model_Client();
+
+$notification_id=0;
+if(isset($_GET['notification_id']) && is_numeric($_GET['notification_id']) && $_GET['notification_id']>0)
+    $notification_id=$_GET['notification_id'];
+    
+$notification_det = $client_obj->getNotification($notification_id);
+
+?>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+        <title>CCC KARUNAGAPPALLY</title>
+
+
+    <!-- Bootstrap core CSS -->
+
+    <!-- Additional CSS Files -->
+
+    <link rel="stylesheet" href="../assets/css/home.css">
+    <link rel="stylesheet" href="../assets/css/owl.css">
+        <link rel="stylesheet" href="../assets/css/fontawesome.css">
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<script src="../assets/js/editor.js"></script>
+<style>
+
+
+   
+    textarea
+    {
+      border:1px solid #999999;
+      width:100%;
+      margin:5px 0;
+      padding:3px;
+    }
+
+    .footer {
+
+        position: relative;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #000000;
+        color: white;
+        text-align: center;
+    }
+
+    
+     /* Dropdown Button */
+    .dropbtn {
+      color: white;
+      font-size: 16px;
+      border: none;
+    }
+    
+    /* The container <div> - needed to position the dropdown content */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    
+    /* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    
+    /* Links inside the dropdown */
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    
+    /* Change color of dropdown links on hover */
+    .dropdown-content a:hover {background-color: #ddd;}
+    
+    /* Show the dropdown menu on hover */
+    .dropdown:hover .dropdown-content {display: block;}
+    
+    /* Change the background color of the dropdown button when the dropdown content is shown */
+    .dropdown:hover .dropbtn {background-color: #3e8e41;} 
+
+
+</style>
+    
+
+</head>
+
+
+
+<body>
+
+
+<!--header-->
+<header class="main-header clearfix" role="header">
+    <div class="logo">
+        <a href="#"><em>CCC</em>  KARUNAGAPPALLY</a>
+    </div>
+    <span style="float:right;margin:30px 30px 0px 0px"><a href="../index/signout">Sign Out</a></span>
+
+</header>
+
+
+
+<br><br><br><br><br>
+<div class="dropdown" style="float:right;margin-right:100px">
+      <button class="dropbtn btn btn-success btn-small">Go to</button>
+      <div class="dropdown-content">
+        <a href="index">Message List</a>
+        <a href="gallery">Gallery</a>
+          <a href="registration">Registration List</a>
+      </div>
+    </div> 
+
+<div style="margin:20px">
+    
+    
+<?php 
+if ( isset( $_SESSION['error'] ) )
+{
+    ?>
+        <div style="color: red;">
+            <i class="fa-fw fa fa-times"></i><strong>Error!</strong> <?php echo $_SESSION['error']; ?>
+        </div>
+    <?php
+    unset($_SESSION['error']);
+}elseif ( isset( $_SESSION['success'] ) )
+{
+    ?>
+        <div style="color: green;">
+            <i class="fa-fw fa fa-check"></i> <?php echo $_SESSION['success']; ?>
+        </div>
+    <?php
+    unset($_SESSION['success']);
+}
+?>
+<?php 
+if($notification_id==0)
+{
+?>
+<form method="post" name="form_add" class="form-horizontal not_add" style="display: none">
+    <legend>Notification Add</legend>
+
+    <div class="control-group">
+        <label class="control-label" for="form-field-1"><h5>Heading</h5></label>
+
+        <div class="controls">
+            <textarea id="form-control" placeholder="Heading"    name="notification_header"></textarea>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="form-field-1"><h5>Description</h5></label>
+
+        <div class="controls">
+            <textarea  name="notification_desc" id="notification_desc"  rows="5" placeholder="Description" ></textarea> 
+        </div>
+    </div>
+    <br>
+    <br>
+
+    <div class="form-actions">
+        <button class="btn btn-success btn-sm" type="submit" name="create_notification" ><i class="icon-ok bigger-110"></i>Create</button>
+        <button class="btn btn-primary btn-sm" type="button" onclick='$( ".not_add" ).hide();$( ".not_view" ).show();'><i class="icon-undo bigger-110"></i>Cancel</button>
+    </div>
+</form>
+
+<legend class="not_view">Notification List &nbsp;&nbsp; <button class="btn btn-primary btn-sm not_view" onclick='$( ".not_add" ).show();$( ".not_view" ).hide();'><i class="fa fa-plus"></i> Add News</button></legend>
+
+<table class="table table-striped-responsive not_view" border="1">
+    <thead>
+    <tr><th>Sl No.</th><th>Heading</th><th>Description</th><th>Action</th></tr>
+    </thead>
+    <tbody>
+<?php
+$notification_rs=$client_obj->getNotificationList();
+$i=1;
+while($notification_row=$client_obj->fetch($notification_rs))
+{
+    echo "<tr><td>".$i++."</td><td  style='white-space: pre-line;white-space: pre-wrap;'>".$notification_row['notification_header']."</td><td style='white-space: pre-line;white-space: pre-wrap;'>".$notification_row['notification_desc']."</td><td>";
+    echo "<form method='post'><div class='btn-group'><input type='hidden' name='notification_id' value='".$notification_row['notification_id']."'><a class='btn btn-primary btn-sm'  href='notification-list?notification_id=".$notification_row['notification_id']."'><i class='fa fa-pencil'></i> Edit </a>";
+    echo "<button class='btn btn-danger btn-sm' name='delete_notification' onclick='return confirm(\"Are you Sure?? \");'><i class='fa fa-trash-o'></i> Delete </button></div></form>";
+    echo "</td></tr>";
+}
+?>
+    </tbody>
+</table>
+<?php 
+    
+}else
+{
+if(!is_array($notification_det))
+die("Invalid details");
+?>
+<legend>Notification Edit</legend>
+
+<form method="post" name="form_edit" id="form_edit" class="form-horizontal not_edit">
+        <input type='hidden' name='notification_id' value="<?php echo $notification_det['notification_id']; ?> ">
+        <div class="control-group" style="width:100%">
+            <label class="control-label" for="form-field-1"><h4>Heading</h4></label>
+
+            <div class="controls">
+                <textarea id="form-field-1" placeholder="Heading" type="text"  style='white-space: pre-line;white-space: pre-wrap;'    name="notification_header"><?php echo $notification_det["notification_header"]; ?></textarea>
+            </div>
+        </div>
+         <div class="control-group">
+            <label class="control-label" for="form-field-1"><h4>Description</h4></label>
+    
+            <div class="controls">
+                <textarea  name="notification_desc" id="notification_desc" placeholder="Description"  style='white-space: pre-line;white-space: pre-wrap;'  rows="5"><?php echo $notification_det['notification_desc']; ?></textarea> 
+            </div>
+        </div>
+        <div class="form-actions">
+            <button class="btn btn-success btn-sm" type="submit" name="edit_notification" ><i class="icon-ok bigger-110"></i>Update</button>
+            <a class="btn btn-sm btn-primary"  href='notification-list'><i class="icon-undo bigger-110"></i>Cancel</a>
+        </div>
+    </form>
+<?php } ?>
+</div>
+
+<footer>
+    <div class="footer">
+        <div class="row">
+            <div class="col-md-12">
+                <p><i class="fa fa-copyright"></i> Copyright 2021 CCC KARUNAGAPPALLY
+
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

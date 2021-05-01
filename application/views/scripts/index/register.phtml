@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<?php
+$client_obj = new Application_Model_Client();
+?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zxx">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Padhai is a creative education html template">
+
+    <title>Commerce & Humanities Centre</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+    <!--Default CSS-->
+    <link href="../assets/css/default.css" rel="stylesheet" type="text/css">
+
+    <!--Custom CSS-->
+    <link href="../assets/css/style.css" rel="stylesheet" type="text/css">
+
+    <!--Plugin CSS-->
+    <link href="../assets/css/owl.carousel.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/modal-video-min.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/plugin.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/magnific-popup.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../assets/css/gallery.css">
+    <link rel="stylesheet" href="../assets/css/lightbox.css">
+    <link rel="stylesheet" href="../assets/css/lightbox.min.css">
+
+    <!--Font Icons-->
+    <link href="../assets/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/flaticon1.css" rel="stylesheet" type="text/css">
+
+    <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script> <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+</head>
+
+<body class="page">
+
+<div id="top"></div>
+
+<!--*Header*-->
+<header id="inner-navigation">
+
+
+
+    <!-- navbar start -->
+    <nav class="navbar navbar-default navbar-fixed-top navbar-sticky-function navbar-arrow">
+
+        <div class="container">
+
+            <div class="logo pull-left">
+                <a href=""> <img src="../assets/images/heading.png" alt=""></a>
+
+            </div>
+
+            <div id="navbar" class="navbar-nav-wrapper pull-right">
+                <ul class="nav navbar-nav navbar-right" id="responsive-menu">
+                    <li>
+                        <a href="../index/"><strong>Home</strong></a>
+
+                    </li>
+
+
+
+
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+
+        <div id="slicknav-mobile"></div>
+    </nav>
+    <!-- navbar end -->
+
+
+    <!-- navbar end -->
+</header>
+
+<!-- Banner -->
+<div id="blog_banner">
+
+    <div class="black-overlay"></div>
+</div>
+<!-- End banner -->
+
+<!-- breadcrumb -->
+<div class="breadcrumb-main">
+    <div class="container">
+        <ul class="breadcrumb">
+            <li><a href="../index/">Home</a></li>
+            <li class="active">Register</li>
+        </ul>
+    </div>
+</div>
+<!-- End breadcrumb -->
+
+
+<!-- cart -->
+<section id="account" class="account section-inner">
+    <div class="container">
+        <div class="row">
+
+
+            <div class="col-md-6">
+
+                <!-- section title -->
+                <div class="inner-heading">
+                    <h2 style='color: red; font-weight: bold';>Register</h2>
+                </div>
+                <form  method="post">
+                    <div class="form-group">
+                        <label style='color: white;'>Full Name:</label>
+                        <input type="text" class="form-control" name="student_name" id="name">
+                    </div>
+
+                    <div class="form-group">
+                        <label style='color: white;'>Mobile No.:</label>
+
+                        <input type="text" class="form-control" name="phone_no" id="mobile">
+                    </div>
+
+                    <div class="form-group">
+                        <label style='color: white;'>10th Class school Name.:</label>
+
+                        <input type="text" class="form-control" name="school_name" id="school">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label style='color: white;'>Select Course:</label>
+                        <select name="select_course">
+                            <option value="Commerce">Commerce</option>
+                            <option value="Humanities">Humanities</option>
+
+                        </select>
+                    </div>
+                    <?php
+                    if ( isset( $_SESSION['error'] ) )
+                    {
+                        ?>
+                        <div style="color: red;">
+                            <i class="fa-fw fa fa-times"></i><strong>Error!</strong> <?php echo $_SESSION['error']; ?>
+                        </div>
+                        <?php
+                        unset($_SESSION['error']);
+                    }elseif ( isset( $_SESSION['success'] ) )
+                    {
+                        ?>
+                        <div style="color: greenyellow;">
+                            <i class="fa-fw fa fa-check"></i> <?php echo $_SESSION['success']; ?>
+                        </div>
+                        <?php
+                        unset($_SESSION['success']);
+                    }
+                    ?>
+
+                    <button type="submit" class="btn btn-primary" name="register" onclick="return validateRegister();">Register</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End store -->
+
+<!--*Footer*-->
+<footer id="mt_footer">
+    <div class="container">
+
+
+
+        <div class="footer-main" id="footer-m">
+            <div class="row">
+                <div class="col-md-5 col-sm-12 col-xs-12">
+                    <div class="follow_us">
+
+                        <br>
+                        <h2><img src="../assets/images/heading.png" alt=""></h2>
+                        <h3><m>C</m>onfident <m>C</m>reative <m>C</m>apable</h3>
+
+                        <p>
+
+                            <strong>W</strong>e aim to be an ideal education companion to all students who dream of establishing
+                            a successful carrier in commerce and Humanities stream. We are the No1 result oriented +2 Commerce and Humanities tuition Centre in Karunagappally.
+                            <strong>W</strong>e not only provides intense tuition to the students but also coaching for preliminary  entrance examination of CA, CS, CMA, Civil service and Law.
+                        </p>
+
+                        <div class="textwidget">
+                            <h4>CONTACT</h4>
+                            <p class="white">Pentium Complex<br>
+                                Near Model H.S.S, Karunagappally.<br><br>
+                                <i class="fa fa-phone"></i>  +91-7902571408<br>
+                                <i class="fa fa-whatsapp" style="color: lightgreen;"></i>  +91-7902571408<br>
+                                <i class="fa fa-envelope"></i>  cccknpy@gmail.com
+
+                            </p>
+                            <p class="white">Mon-Sat: 8:00 AM-6:00 PM</p>
+                        </div>
+
+                    </div>
+                </div>
+                <br><br><br><br><br><br><br>
+                <div class="col-md-5 col-sm-6 col-xs-12">
+                    <div class="footer-right">
+                        <div class="row">
+                            <div class="col-md-6 col-xs-12">
+
+                            </div>
+                            <div class="col-md-6 col-xs-12">
+
+                                <h3>Location</h3>
+
+                                <div id="map">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d853.8846614136974!2d76.53494722289685!3d9.05989161279977!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd2052a736b0bf270!2sCenter%20For%20Commerce!5e0!3m2!1sen!2sin!4v1619203387895!5m2!1sen!2sin"   width="335px" height="300px" frameborder="1" style="border:0" allowfullscreen></iframe>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="mt_footer_copy">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="copy_txt">
+                            <p class="mar-0 white">&copy; Copyright 2021 - CCC All rights Reserved</p>
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="follow_us pull-right">
+                            <p class="mar-0 white">Designed by <a href="http://unicentsoft.com/" target="_blank">UniCentSoft</a></p>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+
+
+
+                        <div class="follow_us pull-right">
+
+                            <ul class="social_icons">
+                                <li><a href=""> <i class="fa fa-facebook"></i></a></li>
+                                <li><a href="https://www.youtube.com/channel/UCeGhE3A404TQppwHpoETWVw" target="_blank"><i class="fa fa-youtube"></i></a></li>
+                                <li><a href=""><i class="fa fa-instagram"></i></a></li>
+                                <li><a href=""><i class="fa fa-linkedin"></i></a></li>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                            </ul>
+
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+</footer>
+<!--* End Footer*-->
+
+<!-- back to top -->
+<a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="" data-placement="left">
+    <span class="fa fa-arrow-up"></span>
+</a>
+
+
+
+<!--*Scripts*-->
+
+<script type="text/javascript">
+
+    function validateRegister()
+    {
+
+        var mobile = /^\d{10}$/;
+
+        if ($("#name").val() == '')
+        {
+            alert("Please fill Name field");
+            $("#name").focus();
+            return false;
+        }
+
+        else if(!$("#mobile").val().match(mobile))
+        {
+            alert("Please provide a valid mobile number");
+            $("#mobile").focus();
+            return false;
+        }
+
+        else if ($("#school").val() == '')
+        {
+            alert("Please fill School Name");
+            $("#school").focus();
+            return false;
+        }
+    }
+
+</script>
+
+<!-- Latest jquery --><script src="../assets/js/jquery-3.2.1.min.js"></script>
+
+<!-- latest Bootstrap --><script src="../assets/js/bootstrap.min.js"></script>
+
+<!-- wow animated jquery --><script src="../assets/js/wow.min.js"></script>
+
+<!-- Navigation jquery --><script src="../assets/js/jquery.nav.js"></script>
+
+<!-- Slick jquery --><script src="../assets/js/slick.js"></script>
+
+<!-- Slicknav jquery --><script src="../assets/js/slicknav.js"></script>
+
+<!-- custom nav jquery --><script src="../assets/js/custom-nav.js"></script>
+
+<!-- Easing Jquery --><script src="../assets/js/jquery.easing.min.js"></script>
+
+<!-- Appear Jquery --><script src="../assets/js/jquery.appear.js"></script>
+
+<!-- main default Jquery --><script src="../assets/js/main.js"></script>
+</body>
+
+</html>

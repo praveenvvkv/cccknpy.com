@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<?php
+$client_obj = new Application_Model_Client();
+?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zxx">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Padhai is a creative education html template">
+
+    <title>Commerce & Humanities Centre</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+    <!--Default CSS-->
+    <link href="../assets/css/default.css" rel="stylesheet" type="text/css">
+
+    <!--Custom CSS-->
+    <link href="../assets/css/style.css" rel="stylesheet" type="text/css">
+
+
+    <!--Plugin CSS-->
+    <link href="../assets/css/owl.carousel.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/modal-video-min.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/plugin.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/magnific-popup.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../assets/css/gallery.css">
+    <link rel="stylesheet" href="../assets/css/lightbox.css">
+    <link rel="stylesheet" href="../assets/css/lightbox.min.css">
+
+    <!--Font Icons-->
+    <link href="../assets/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/icon.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/icons.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/flaticon1.css" rel="stylesheet" type="text/css">
+
+    <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script> <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+</head>
+
+<body class="home-3">
+
+<div id="top"></div>
+
+<!--*Header*-->
+<header id="inner-navigation">
+
+    <!-- top bar -->
+    <div class="topbar-section">
+        <div class="container">
+            <div class="topbar-inner">
+                <div class="top-bar-left pull-left">
+
+
+                        <img src="../assets/images/heading.png"  alt="">
+
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+                <div class="top-bar-left pull-right">
+
+                    <ul>
+
+                        <li>
+                            <div class="bs-info-content">
+                                <div class="info-box">
+
+                                    <i class="fa fa-map-marker fa-4x"></i>
+
+                                    <div class="c-box">
+                                        <h6 class="title">Our Location</h6>
+                                        <p class="desc">Pentium Complex, KNPY</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </li>
+
+                        <li>
+
+                            <div class="bs-info-content">
+                                <div class="info-box">
+
+                                    <i class="fa fa-phone fa-4x"></i>
+
+                                    <div class="c-box">
+                                        <h6 class="title">Call Us</h6>
+                                        <p class="desc">+91-7902571408</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </li>
+
+                        <li>
+                            <div class="bs-info-content">
+                                <div class="info-box">
+
+                                    <i class="fa fa-clock-o fa-4x"></i>
+
+                                    <div class="c-box">
+                                        <h3 class="title">Working Time</h3>
+                                        <p class="desc">Mon-Sat: 8:00 AM-6:00 PM</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- navbar start -->
+    <nav class="navbar navbar-default navbar-fixed-top navbar-sticky-function navbar-arrow">
+
+        <div class="container">
+
+            <div class="logo pull-left">
+                <img id="img1" src="../assets/images/logo3.jpg" alt="">
+                <img id="img2" src="../assets/images/heading.png" alt="">
+
+            </div>
+
+            <div id="navbar" class="navbar-nav-wrapper pull-right">
+                <ul class="nav navbar-nav navbar-right" id="responsive-menu">
+                    <li>
+                        <a href="#">Home</a>
+
+                    </li>
+
+                    <li> <a href="#mt_about">About-Us <i class="fa fa-angle-down"></i></a></li>
+
+
+
+                    <li> <a href="#course">Courses <i class="fa fa-angle-down"></i></a></li>
+
+                    <li> <a href="#educate-team">Faculty <i class="fa fa-angle-down"></i></a></li>
+                    <li> <a href="#the-gallery">Gallery <i class="fa fa-angle-down"></i></a></li>
+
+
+
+                    <li>
+                        <a href="#footer-m">Contact <i class="fa fa-angle-down"></i></a>
+
+                    </li>
+
+                    <li>
+                        <div class="smt-items mar-top-0">
+                            <a class="mt_btn_yellow" href="../index/register">REGISTER NOW</a>
+                        </div>
+
+                    </li>
+
+
+
+
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+
+        <div id="slicknav-mobile"></div>
+    </nav>
+    <!-- navbar end -->
+
+    <!-- navbar start -->
+    <nav class="navbar navbar-default navbar-fixed ">
+
+        <div class="container">
+            <div class="logo pull-left">
+                <h3>Latest Updates</h3>
+
+
+
+                <h6>
+                    <font color="white">
+                        <?php
+                        $notification_rs=$client_obj->getNotificationList();
+
+                        $str_marq='';
+                        while($notification_row=$client_obj->fetch($notification_rs))
+                        {
+
+
+
+
+                            $str_marq.='<a href="notification?id='.$notification_row["notification_id"].'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$notification_row["notification_header"].'</a>  ';
+
+
+
+                        }
+
+                        ?>
+
+
+
+                    </font>
+
+                </h6>
+
+
+            </div>
+
+        </div>
+
+
+    </nav>
+    <!-- navbar end -->
+</header>
+<!--* End Header*--><?php
+//print_r($str_marq); ?>
+<marquee width="100%" direction="left"  style="height: 50px" scrollamount="5" font color="white"  onmouseover="this.stop();" onmouseout="this.start();" >
+    <?php echo $str_marq; ?> </marquee>
+
+<!-- Paradise Slider -->
+<div id="fw_al_009" class="carousel slide ps_control_sbo swipe_x ps_easeOutInCubic" data-ride="carousel" data-pause="hover" data-interval="3000" data-duration="2000">
+
+    <!-- Wrapper For Slides -->
+    <div class="carousel-inner" role="listbox">
+
+        <!-- First Slide -->
+        <div class="item active">
+
+            <!-- Slide Background -->
+            <img src="../assets/images/slider/1.jpg"/>
+            <!-- Left Slide Text Layer -->
+            <div class="caption_slide1 fadeInUp" data-animation="animated fadeInUp">
+
+
+            </div><!-- /Left Slide Text Layer -->
+
+        </div>
+        <!-- End of Slide -->
+        <div class="item">
+
+            <!-- Slide Background -->
+            <img src="../assets/images/slider/01.jpg"/>
+            <!-- Left Slide Text Layer -->
+            <div class="caption_slide1 fadeInUp" data-animation="animated fadeInUp">
+
+
+            </div><!-- /Left Slide Text Layer -->
+
+        </div>
+        <div class="item">
+
+            <!-- Slide Background -->
+            <img src="../assets/images/slider/02.jpg" />
+            <!-- Left Slide Text Layer -->
+            <div class="caption_slide1 fadeInUp" data-animation="animated fadeInUp">
+
+
+            </div><!-- /Left Slide Text Layer -->
+
+        </div>
+        <div class="item">
+
+            <!-- Slide Background -->
+            <img src="../assets/images/slider/03.jpg" />
+            <!-- Left Slide Text Layer -->
+            <div class="caption_slide1 fadeInUp" data-animation="animated fadeInUp">
+
+
+            </div><!-- /Left Slide Text Layer -->
+
+        </div>
+        <div class="item">
+
+            <!-- Slide Background -->
+            <img src="../assets/images/slider/04.jpg" />
+            <!-- Left Slide Text Layer -->
+            <div class="caption_slide1 fadeInUp" data-animation="animated fadeInUp">
+
+
+            </div><!-- /Left Slide Text Layer -->
+
+        </div>
+        <div class="item">
+
+            <!-- Slide Background -->
+            <img src="../assets/images/slider/05.jpg" />
+            <!-- Left Slide Text Layer -->
+            <div class="caption_slide1 fadeInUp" data-animation="animated fadeInUp">
+
+
+            </div><!-- /Left Slide Text Layer -->
+
+        </div>
+        <div class="item">
+
+            <!-- Slide Background -->
+            <img src="../assets/images/slider/06.jpg"  />
+            <!-- Left Slide Text Layer -->
+            <div class="caption_slide1 fadeInUp" data-animation="animated fadeInUp">
+
+
+            </div><!-- /Left Slide Text Layer -->
+
+        </div>
+
+
+
+        <div class="item">
+
+            <!-- Slide Background -->
+            <img src="../assets/images/slider/ADV.jpg" />
+            <!-- Left Slide Text Layer -->
+            <div class="caption_slide1 fadeInUp" data-animation="animated fadeInUp">
+
+
+            </div><!-- /Left Slide Text Layer -->
+
+        </div>
+
+
+        <!-- Second Slide -->
+        <div class="item">
+
+            <!-- Slide Background -->
+            <img src="../assets/images/slider/students1.jpg"  />
+
+            <div class="caption_slide1 fadeInUp" data-animation="animated fadeInUp">
+
+
+
+            </div><!-- /Left Slide Text Layer -->
+        </div>
+        <!-- End of Slide -->
+
+        <!-- Third Slide -->
+        <div class="item">
+
+            <!-- Slide Background -->
+            <img src="../assets/images/slider/students2.jpg"  />
+
+            <div class="caption_slide1 fadeInUp" data-animation="animated fadeInUp">
+
+
+
+            </div><!-- /Left Slide Text Layer -->
+        </div>
+        <!-- End of Slide -->
+
+        <!-- fourth Slide -->
+        <div class="item">
+
+            <!-- Slide Background -->
+            <img src="../assets/images/slider/students3.jpg"  />
+
+            <div class="caption_slide1 fadeInUp" data-animation="animated fadeInUp">
+
+
+
+            </div><!-- /Left Slide Text Layer -->
+        </div>
+        <!-- End of Slide -->
+
+    </div><!-- End of Wrapper For Slides -->
+
+    <!-- Left Control -->
+    <a class="left carousel-control" href="#fw_al_009" role="button" data-slide="prev">
+        <span class="fa fa-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+
+    <!-- Right Control -->
+    <a class="right carousel-control" href="#fw_al_009" role="button" data-slide="next">
+        <span class="fa fa-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+
+</div>
+<!-- End Paradise Slider -->
+
+<!--*About*-->
+<section id="mt_about">
+    <div class="container">
+        <div class="about_services">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="about-items">
+                        <div class="inner-heading">
+                            <h3>Know more about CCC</h3>
+
+                            <h2><m>C</m>onfident <m>C</m>reative <m>C</m>apable</h2>
+                        </div>
+                        <br>
+                        <p>
+
+                            <strong>W</strong>e aim to be an ideal education companion to all students who dream of establishing
+                            a successful carrier in commerce and Humanities stream. We are the No1 result oriented +2 Commerce and Humanities tuition Centre in Karunagappally.<br><br> <strong>W</strong>e not only provides intense tuition to the students but also coaching for preliminary  entrance examination of CA, CS, CMA, Civil service and Law. We are the only institution in karunagappally  provide carrier guidance program to the +1,+2 students. Concepts based learning techniques   along with experienced teachers  help students to achieve their  goals.<br><br> <strong>W</strong>e have been regularly coming with state level toppers with full marks in +2 result year after year. Therefore , our classes  is the best place for commerce and Humanities students in Karunagappally and help students to launch their career to greater heights.
+
+                        </p>
+                        <h4>CCC An institution that is synonymous with success since 2001</h4>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="about">
+                        <br><br><br><br><br><br><br><br>
+                        <img src="../assets/images/05.jpg" width="500" height="270" alt="About">
+                    </div>
+                </div>
+
+            </div>
+
+            <br><br>
+            <div class="row">
+
+                <div class="col-sm-12">
+                    <div class="about-items">
+                        <div class="inner-heading">
+                            <h3>About Our Founder</h3>
+
+                        </div>
+                        <div class="col-sm-3">
+
+                            <div class="item">
+                                <div class="testimonial_main">
+                                    <div class="client-pic"><img src="../assets/images/founder.jpg" alt=""></div>
+
+
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                        <div class="col-sm-7">
+                            <p>Lorem ipsum gravida nibh vel velit auctor aliquetn sollicitudirem quibibendum auci elit cons equat ipsutis sem nibh  id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt  mauris.Auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet . Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt  mauris.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <br><br>
+
+
+
+
+
+        <div class="col-xs-12">
+            <div class="about-form">
+                <div class="col-sm-9">
+                    <div class="about-sch-form">
+                        <div class="event-title">
+                            <h2>Admission Started</h2>
+                            <h3 class="white">2021 Admission now open</h3>
+                        </div> <!-- event title -->
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="smt-items mar-top-40">
+                        <a class="mt_btn_yellow" href="../index/register">REGISTER NOW</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</section>
+
+<!--*EndAbout*-->
+
+
+
+<!--* Testimonial*-->
+<section id="const-testi" class="edu-testimonial">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <!-- section title -->
+                <div class="inner-heading">
+                    <br><br><br><br>
+                    <h2 class="white">Principal's Message</h2>
+
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="row slider-eductestimo">
+                    <div class="col-sm-4">
+                        <div class="item">
+                            <div class="testimonial_main">
+                                <div class="client-pic"><img src="../assets/images/teachers/principal.jpeg" alt=""></div>
+                                <h4>
+                                    <a href="#" onclick="return false" class="text-uppercase">Vishnu Dev</a>
+                                    <span>Principal</span>
+                                </h4>
+                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--* EndTestimonial*-->
+<br><br><br><br><br><br><br>
+<!-- Find Courses -->
+<section class="selected-course" id="course">
+    <div class="container">
+        <div class="inner-heading">
+            <h3>Find your course</h3>
+            <h2>find your courses from here</h2>
+        </div>
+        <div class="row">
+
+
+
+                <div class="all-courses">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="courses-item mar-bottom-30">
+                                <i class="fa fa-bank"></i>
+                                <p>CA Foundation Course</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="courses-item mar-bottom-30">
+                                <i class="fa fa-suitcase"></i>
+                                <p>CS Foundation Course</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="courses-item mar-bottom-30">
+                                <i class="fa fa-rupee"></i>
+                                <p>CMA Foundation Course</p>
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="courses-item">
+                                <i class="fa fa-book"></i>
+                                <p>+1, +2 Tuition for Commerce & Humanities</p>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+
+        </div>
+    </div>
+</section>
+<!-- End Find Courses -->
+
+<!--*Features-one*-->
+<section class="features-one" id="course1">
+<div class="container">
+<div class="inner-heading">
+
+    <h2>Various courses to choose from</h2>
+</div>
+<div class="row  slider slider-ft-course">
+<div class="col-md-4 col-sm-6 col-xs-12 item">
+    <div class="featured-item">
+        <div class="feat-img">
+            <img src="../assets/images/education/ca.jpg" alt="">
+            <div class="th-name">
+            </div>
+            <div class="overlayPort">
+
+            </div>
+        </div>
+        <div class="feat-inn">
+
+
+            <h3>Chartered Accountant  Foundation Course</h3>
+
+        </div>
+    </div>
+</div>
+    <div class="col-md-4 col-sm-6 col-xs-12 item">
+        <div class="featured-item">
+            <div class="feat-img">
+                <img src="../assets/images/education/CS.jpg" alt="">
+                <div class="th-name">
+                </div>
+                <div class="overlayPort">
+
+                </div>
+            </div>
+            <div class="feat-inn">
+
+
+                <h3>Company Secretary Foundation Course</h3>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12 item">
+        <div class="featured-item">
+            <div class="feat-img">
+                <img src="../assets/images/education/CMA.jpg" alt="">
+                <div class="th-name">
+                </div>
+                <div class="overlayPort">
+
+                </div>
+            </div>
+            <div class="feat-inn">
+
+
+                <h3>Cost Management Accounting Foundation Course</h3>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12 item">
+        <div class="featured-item">
+            <div class="feat-img">
+                <img src="../assets/images/education/+1+2.jpg" alt="">
+                <div class="th-name">
+                </div>
+                <div class="overlayPort">
+
+                </div>
+            </div>
+            <div class="feat-inn">
+
+
+             <h3>+1, +2 Tuition for Commerce & Humanities</h3>
+
+            </div>
+        </div>
+    </div>
+</div>
+</div><!-- /.container -->
+</section>
+<!--*EndFeatures-one*-->
+
+<!--* Fun And Facts*-->
+<section id="mt_fun">
+    <div class="container">
+        <div class="mt-statts">
+            <div class="inner-heading">
+                <h2>Why choose us</h2>
+
+            </div>
+            <div class="row facts_row">
+                <div class="col-md-8">
+                    <div class="fun-facts-main">
+                        <div class="fun-facts_wrapper">
+                            <i class="fa fa-university"></i><br><br>
+                            <span class="fun-facts_figure timer" data-to="20" data-speed="3000"></span><br>
+                            <span class="fun-facts_title"> YEARS OF HISTORY </span>
+                        </div>
+
+                        <div class="fun-facts_wrapper">
+                            <i class="fa fa-graduation-cap"></i><br><br>
+                            <span class="fun-facts_figure timer" data-to="1000" data-speed="3000"></span>
+                            <span class="fun-facts_figure">+</span><br>
+                            <span class="fun-facts_title"> STUDENTS </span>
+                        </div>
+                        <div class="fun-facts_wrapper">
+                            <i class="fa fa-users"></i><br><br>
+                            <span class="fun-facts_figure timer" data-to="250" data-speed="3000"></span>
+                            <span class="fun-facts_figure">+</span><br>
+                            <span class="fun-facts_title"> TEACHERS </span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+
+                    <iframe width="325" height="325"
+                            src="https://www.youtube.com/embed/_NjZK_cmi5I?autoplay=1&mute=1&loop=1">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--* End Fun And Facts*-->
+
+
+
+<section id="mt_get_started" class="front-get">
+    <div class="container">
+        <div class="start-theme">
+            <div class="started-rg">
+                <div class="watch_content">
+                    <h2 class="white">GET START TODAY</h2>
+                    <p class="white">
+                        <strong>W</strong>e not only provides intense tuition to the students but also coaching for preliminary  entrance examination of CA, CS, CMA, Civil service and Law. We are the only institution in karunagappally  provide carrier guidance program to the +1,+2 students. Concepts based learning techniques   along with experienced teachers  help students to achieve their  goals.
+                        <br><br>
+                        <a href="#footer-m" class="mt_btn_yellow">CONNECT US</a>
+                </div>
+            </div>
+            <div class="get_stt_img">
+                <img src="../assets/images/education/student-01.png" alt="">
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<br><br><br><br><br><br>
+
+<!--*Team*-->
+<section id="educate-team">
+<div class="container">
+
+    <!-- section title -->
+    <div class="inner-heading">
+        <h3>Our Teachers</h3>
+        <h2>Meet our expert teachers</h2>
+    </div>
+
+    <div class="row edu_team_slider slider-educteam">
+        <div class="col-md-4 col-sm-6 col-xs-12 item">
+            <div class="team_member">
+                <figure class="effect-julia">
+                    <img src="../assets/images/teachers/teacher5.jpg" alt="team">
+                    <figure class="effect-julia">
+            </div>
+            </figure>
+            <div class="member_name">
+                <h3>Renjith</h3>
+                <span>English Teacher</span>
+                <div class="about-tech">
+                    <h4>MA Eng, B. ed, SET, NET<br>
+                        14 years Experience<br>
+                        Published 5 books
+                    </h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12 item">
+            <div class="team_member">
+                <figure class="effect-julia">
+                    <img src="../assets/images/teachers/teacher1.jpg" alt="team">
+
+                </figure>
+                <div class="member_name">
+                    <h3>Sajith</h3>
+                    <span>Business Studies Teacher</span>
+                    <div class="about-tech">
+                        <h4>M.Com Finance</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12 item">
+            <div class="team_member">
+                <figure class="effect-julia">
+                    <img src="../assets/images/teachers/teacher2.jpg" alt="team">
+
+                </figure>
+                <div class="member_name">
+                    <h3>Sumesh</h3>
+                    <span>History Teacher</span>
+                    <div class="about-tech">
+                        <h4>M.A History</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12 item">
+            <div class="team_member">
+                <figure class="effect-julia">
+                    <img src="../assets/images/teachers/teacher12.jpg" alt="team">
+
+                </figure>
+                <div class="member_name">
+                    <h3>Vishnu G</h3>
+                    <span>Political Science Teacher</span>
+                    <div class="about-tech">
+                        <h4>M. A. POLITICAL SCIENCE<br>
+                            B. Ed, SET
+
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12 item">
+            <div class="team_member">
+                <figure class="effect-julia">
+                    <img src="../assets/images/teachers/teacher3.jpg" alt="team">
+
+                </figure>
+                <div class="member_name">
+                    <h3>Rajan</h3>
+                    <span>Economics Teacher</span>
+                    <h4>M.A Economics</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12 item">
+            <div class="team_member">
+                <figure class="effect-julia">
+                    <img src="../assets/images/teachers/teacher4.jpg" alt="team">
+
+                </figure>
+                <div class="member_name">
+                    <h3>Gokul</h3>
+                    <span>Accountancy Teacher</span>
+                    <h4>C.A</h4>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12 item">
+            <div class="team_member">
+                <figure class="effect-julia">
+                    <img src="../assets/images/teachers/teacher7.jpg" alt="team">
+
+                </figure>
+                <div class="member_name">
+                    <h3>V.R Anu Raj</h3>
+                    <span>English Teacher</span>
+                    <h4>M.A English Literature</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 col-xs-12 item">
+            <div class="team_member">
+                <figure class="effect-julia">
+                    <img src="../assets/images/teachers/teacher6.jpg" alt="team">
+
+                </figure>
+                <div class="member_name">
+                    <h3>Thilak</h3>
+                    <span>Accountancy Teacher</span>
+                    <h4>M.Com<br>MBA</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12 item">
+            <div class="team_member">
+                <figure class="effect-julia">
+                    <img src="../assets/images/teachers/teacher8.jpg" alt="team">
+
+                </figure>
+                <div class="member_name">
+                    <h3>Athira Arun</h3>
+                    <span>Computer Application Teacher</span>
+                    <h4>M.Sc</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12 item">
+            <div class="team_member">
+                <figure class="effect-julia">
+                    <img src="../assets/images/teachers/teacher9.jpg" alt="team">
+
+                </figure>
+                <div class="member_name">
+                    <h3>Haritha</h3>
+                    <span>Computer Application Teacher</span>
+                    <h4>MCA</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 col-xs-12 item">
+            <div class="team_member">
+                <figure class="effect-julia">
+                    <img src="../assets/images/teachers/teacher10.jpg" alt="team">
+
+                </figure>
+                <div class="member_name">
+                    <h3>Sheethal.P.S</h3>
+                    <span>Geography Teacher</span>
+                    <h4>MSC<br> BEd (Geography)<br>
+                        SET</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12 item">
+            <div class="team_member">
+                <figure class="effect-julia">
+                    <img src="../assets/images/teachers/teacher13.jpeg" alt="team">
+
+                </figure>
+                <div class="member_name">
+                    <h3>Renu</h3>
+                    <span>Sociology Teacher</span>
+                    <h4>B.A Sociology (Kerala University First Rank)</h4>
+                    <h4>MSW (Kerala University First Rank)</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12 item">
+            <div class="team_member">
+                <figure class="effect-julia">
+                    <img src="../assets/images/teachers/teacher11.jpg" alt="team">
+
+                </figure>
+                <div class="member_name">
+                    <h3>Jacob. A</h3>
+                    <span>Accountancy Teacher</span>
+                    <h4>M.Com Finance<br>B.Ed.<br>SET</h4>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+</section>
+<!--* End Team*-->
+
+<br><br><br><br><br><br>
+<!-- l-instructor -->
+<section id="l-instructor">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-sm-6">
+                <div class="widget-cta cta-style1">
+                    <div class="item">
+                        <h2 class="widget-title">
+                            <span class="white">Like to become a Student?</span>
+                        </h2>
+
+                    </div>
+                    <div class="action">
+                        <a class="mt_btn_white-bor" href="#mt_footer">CONTACT US!</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="widget-cta">
+                    <div class="item">
+                        <h2 class="widget-title">
+                            <span class="white">Like to become a Teacher?</span>
+                        </h2>
+
+                    </div>
+                    <div class="action">
+                        <a class="mt_btn_yellow" href="#mt_footer">CONTACT US!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End l-instructor -->
+
+<!-- Gallery -->
+<section id="the-gallery" class="wide-gallery">
+    <div class="container">
+        <br><br><br>
+        <!-- section title -->
+        <div class="inner-heading">
+            <h3>Gallery</h3>
+            <h2>See and feel it</h2>
+        </div>
+
+        <div class="gallery" align="center">
+            <?php
+            $file_list =$client_obj->getUploadedFilesList();
+
+            while ($row = $client_obj->fetch($file_list))
+            {
+                echo '<a href="../uploads/gallery/'.$row['new_name'].'" data-lightbox="mygallery"><img src="../uploads/gallery/'.$row['new_name'].'"></a>';
+            }
+            ?>
+
+        </div>
+
+    </div>
+</section>
+<!-- End Gallery -->
+<br><br><br><br><br><br><br>
+
+<!--*Footer*-->
+<footer id="mt_footer">
+    <div class="container">
+
+
+
+        <div class="footer-main" id="footer-m">
+            <div class="row">
+                <div class="col-md-5 col-sm-12 col-xs-12">
+                    <div class="follow_us">
+                        <br>
+                        <h2><img src="../assets/images/heading.png" alt=""></h2>
+                        <h3><m>C</m>onfident <m>C</m>reative <m>C</m>apable</h3>
+
+                        <p>
+
+                            <strong>W</strong>e aim to be an ideal education companion to all students who dream of establishing
+                            a successful carrier in commerce and Humanities stream. We are the No1 result oriented +2 Commerce and Humanities tuition Centre in Karunagappally.
+                            <strong>W</strong>e not only provides intense tuition to the students but also coaching for preliminary  entrance examination of CA, CS, CMA, Civil service and Law.
+                        </p>
+
+                        <div class="textwidget">
+                            <h4>CONTACT</h4>
+                            <p class="white">Pentium Complex<br>
+                                Near Model H.S.S, Karunagappally.<br><br>
+                                <i class="fa fa-phone"></i>  +91-7902571408<br>
+                                <i class="fa fa-whatsapp" style="color: lightgreen;"></i>  +91-7902571408<br>
+                                <i class="fa fa-envelope"></i>  cccknpy@gmail.com
+
+                            </p>
+                            <p class="white">Mon-Sat: 8:00 AM-6:00 PM</p>
+                        </div>
+
+                    </div>
+                </div>
+                <br><br><br><br><br><br><br>
+                <div class="col-md-7 col-sm-6 col-xs-12">
+                    <div class="footer-right">
+                        <div class="row">
+                            <div class="col-md-6 col-xs-12">
+                                <div class="mt_contact_ftr">
+                                    <h3>For Enquiries</h3>
+                                    <form  method="post">
+                                        <?php
+                                        if ( isset( $_SESSION['error'] ) )
+                                        {
+                                            ?>
+                                            <div style="color: red;">
+                                                <i class="fa-fw fa fa-times"></i><strong>Error!</strong> <?php echo $_SESSION['error']; ?>
+                                            </div>
+                                            <?php
+                                            unset($_SESSION['error']);
+                                        }elseif ( isset( $_SESSION['success'] ) )
+                                        {
+                                            ?>
+                                            <div style="color: greenyellow;">
+                                                <i class="fa-fw fa fa-check"></i> <?php echo $_SESSION['success']; ?>
+                                            </div>
+                                            <?php
+                                            unset($_SESSION['success']);
+                                        }
+                                        ?>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <fieldset>
+                                                    <input name="msg_name" type="text" class="form-control" id="name" placeholder="Your Name" required="">
+                                                </fieldset>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <fieldset>
+                                                    <input name="msg_email" type="text" class="form-control" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" id="email" placeholder="Your Email" required="">
+                                                </fieldset>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <fieldset>
+                                                    <textarea name="msg" rows="6" class="form-control" id="message" placeholder="Your message..." required=""></textarea>
+                                                </fieldset>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <fieldset>
+                                                    <button type="submit" class="btn btn-primary" name="send_msg">Send Message Now</button>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xs-12">
+
+                                <h3>Location</h3>
+
+                                <div id="map">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d853.8846614136974!2d76.53494722289685!3d9.05989161279977!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd2052a736b0bf270!2sCenter%20For%20Commerce!5e0!3m2!1sen!2sin!4v1619203387895!5m2!1sen!2sin"   width="335px" height="300px" frameborder="1" style="border:0" allowfullscreen></iframe>
+                                </div>
+
+                                <div class="col-md-6">
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="mt_footer_copy">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="copy_txt">
+                            <p class="mar-0 white">&copy; Copyright 2021 - CCC All rights Reserved</p>
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="follow_us pull-right">
+                            <p class="mar-0 white">Designed by <a href="http://unicentsoft.com/" target="_blank">UniCentSoft</a></p>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+
+
+
+                        <div class="follow_us pull-right">
+
+                            <ul class="social_icons">
+                                <li><a href=""> <i class="fa fa-facebook"></i></a></li>
+                                <li><a href="https://www.youtube.com/channel/UCeGhE3A404TQppwHpoETWVw" target="_blank"><i class="fa fa-youtube"></i></a></li>
+                                <li><a href=""><i class="fa fa-instagram"></i></a></li>
+                                <li><a href=""><i class="fa fa-linkedin"></i></a></li>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                            </ul>
+
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+</footer>
+<!--* End Footer*-->
+
+<!-- back to top -->
+<a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="" data-placement="left">
+    <span class="fa fa-arrow-up"></span>
+</a>
+
+<!--*Scripts*-->
+
+<!-- Latest jquery --><script src="../assets/js/jquery-3.2.1.min.js"></script>
+
+<!-- latest Bootstrap --><script src="../assets/js/bootstrap.min.js"></script>
+
+<!-- Parallax jquery --><script src="../assets/js/jquery.parallax-1.1.3.js"></script>
+
+<!-- Fancybox jquery --><script src="../assets/js/jquery.fancybox.pack.js"></script>
+
+<!-- Easing Jquery --><script src="../assets/js/jquery.easing.min.js"></script>
+
+<!-- wow animated jquery --><script src="../assets/js/wow.min.js"></script>
+
+<!-- Navigation jquery --><script src="../assets/js/jquery.nav.js"></script>
+
+<!-- Magnific Popup JS --><script src="../assets/js/jquery.magnific-popup.min.js"></script>
+
+<!-- custom image popup Jquery --><script src="../assets/js/custom-magnificpopup.js"></script>
+
+<!-- Slick jquery --><script src="../assets/js/slick.js"></script>
+
+<!-- Slicknav jquery --><script src="../assets/js/slicknav.js"></script>
+
+<!-- custom nav jquery --><script src="../assets/js/custom-nav.js"></script>
+
+<!-- Owl Carousel Jquery --><script src="../assets/js/owl.carousel.min.js"></script>
+
+<!-- Appear Jquery --><script src="../assets/js/jquery.appear.js"></script>
+
+<!-- isotope Jquery --><script src="../assets/js/isotope.min.js"></script>
+
+<!-- CountTo Jquery --><script src="../assets/js/jquery.countTo.js"></script>
+
+<!-- Popup video Jquery --><script src="../assets/js/jquery-modal-video.min.js"></script>
+
+<!-- custom Popup video Jquery --><script src="../assets/js/custom-modalvideo.js"></script>
+<script src="../assets/js/lightbox.js"></script>
+
+<!-- main default Jquery --><script src="../assets/js/main.js"></script>
+</body>
+
+</html>

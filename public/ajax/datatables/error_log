@@ -1,0 +1,10 @@
+[05-Dec-2020 00:19:47 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to Application_Model_Database::fetch() must be an instance of PDOStatement, null given, called in /home/q0o0pj005zi7/public_html/cscsooranadnorth.in/public/ajax/datatables/msg_list.php on line 129 and defined in /home/q0o0pj005zi7/public_html/cscsooranadnorth.in/application/models/Database.php:335
+Stack trace:
+#0 /home/q0o0pj005zi7/public_html/cscsooranadnorth.in/public/ajax/datatables/msg_list.php(129): Application_Model_Database->fetch(NULL)
+#1 {main}
+  thrown in /home/q0o0pj005zi7/public_html/cscsooranadnorth.in/application/models/Database.php on line 335
+[05-Dec-2020 00:21:32 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to Application_Model_Database::fetch() must be an instance of PDOStatement, null given, called in /home/q0o0pj005zi7/public_html/cscsooranadnorth.in/public/ajax/datatables/msg_list.php on line 129 and defined in /home/q0o0pj005zi7/public_html/cscsooranadnorth.in/application/models/Database.php:335
+Stack trace:
+#0 /home/q0o0pj005zi7/public_html/cscsooranadnorth.in/public/ajax/datatables/msg_list.php(129): Application_Model_Database->fetch(NULL)
+#1 {main}
+  thrown in /home/q0o0pj005zi7/public_html/cscsooranadnorth.in/application/models/Database.php on line 335

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<?php
+$client_obj = new Application_Model_Client();
+$file_list =$client_obj->getUploadedFilesList();
+
+?>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+        <title>CCC KARUNAGAPPALLY</title>
+
+
+    <!-- Bootstrap core CSS -->
+
+    <!-- Additional CSS Files -->
+
+    <link rel="stylesheet" href="../assets/css/home.css">
+    <link rel="stylesheet" href="../assets/css/owl.css">
+    
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <link rel="stylesheet" href="../assets/css/font-awesome.css">
+
+	<link href="../assets/css/editor.css" type="text/css" rel="stylesheet"/>
+		
+		
+<style>
+
+
+    
+
+   .footer {
+
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #000000;
+        color: white;
+        text-align: center;
+    }
+    
+     /* Dropdown Button */
+    .dropbtn {
+      color: white;
+      font-size: 16px;
+      border: none;
+    }
+    
+    /* The container <div> - needed to position the dropdown content */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    
+    /* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    
+    /* Links inside the dropdown */
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    
+    /* Change color of dropdown links on hover */
+    .dropdown-content a:hover {background-color: #ddd;}
+    
+    /* Show the dropdown menu on hover */
+    .dropdown:hover .dropdown-content {display: block;}
+    
+    /* Change the background color of the dropdown button when the dropdown content is shown */
+    .dropdown:hover .dropbtn {background-color: #3e8e41;} 
+
+
+</style>
+    
+
+</head>
+
+
+
+<body>
+
+
+<!--header-->
+<header class="main-header clearfix" role="header">
+    <div class="logo">
+        <a href="#"><em>CCC</em> KARUNAGAPPALLY</a>
+    </div>
+    <span style="float:right;margin:30px 30px 0px 0px"><a href="../index/signout">Sign Out</a></span>
+
+</header>
+
+    <br><br><br><br><br>
+<div class="dropdown" style="float:right;margin-right:100px">
+      <button class="dropbtn btn btn-success btn-small">Go to</button>
+      <div class="dropdown-content">
+        <a href="index">Message List</a>
+        <a href="notification-list">Notification List</a>
+          <a href="registration">Registration List</a>
+      </div>
+    </div> 
+
+    <form class="form-horizontal" id="edit_upload_info" method="post" name="fms_upload_form" enctype="multipart/form-data">
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <legend>Upload Your Images</legend>
+                
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-12 col-md-4 col-lg-4 control-label" for="filename">Image <span class="txt-color-red">*</span></label>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        <input id="filename" name="filename"  type="file">
+                        <div class="note">Image should be jpg / png</div>
+                        <div class="note">Image size should be less than 1 MB</div>
+
+                    </div>
+                </div>
+                <?php
+                    if ( isset( $_SESSION['type_error'] ) )
+                    {
+                        ?>
+                            <div style="color: red;">
+                                <i class="fa-fw fa fa-times"></i><strong>Error!</strong> <?php echo $_SESSION['type_error']; ?>
+                            </div>
+                        <?php
+                        unset($_SESSION['type_error']);
+                        unset($_SESSION['error']);
+
+                    }elseif ( isset( $_SESSION['error'] ) )
+                    {
+                        ?>
+                            <div style="color: red;">
+                                <i class="fa-fw fa fa-times"></i><strong>Error!</strong> <?php echo $_SESSION['error']; ?>
+                            </div>
+                        <?php
+                        unset($_SESSION['error']);
+                    }elseif ( isset( $_SESSION['success'] ) )
+                    {
+                        ?>
+                            <div style="color: green;">
+                                <i class="fa-fw fa fa-check"></i> <?php echo $_SESSION['success']; ?>
+                            </div>
+                        <?php
+                        unset($_SESSION['success']);
+                    }
+                    ?>
+                <div class="form-actions" style="text-align: center">
+                    <button class="btn btn-success" name="file_upload" type="submit" onclick="return validate_file_upload();"> Upload </button>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <legend>Uploaded Images</legend>
+                <?php
+                if($client_obj->getRowCount($file_list)>0)
+                {
+                ?>
+                <?php
+                    if ( isset( $_SESSION['delete_error'] ) )
+                    {
+                        ?>
+                            <div style="color: red;">
+                                <i class="fa-fw fa fa-times"></i><strong>Error!</strong> <?php echo $_SESSION['delete_error']; ?>
+                            </div>
+                        <?php
+                        unset($_SESSION['delete_error']);
+                    }elseif ( isset( $_SESSION['delete_success'] ) )
+                    {
+                        ?>
+                            <div style="color: green;">
+                                <i class="fa-fw fa fa-check"></i> <?php echo $_SESSION['delete_success']; ?>
+                            </div>
+                        <?php
+                        unset($_SESSION['delete_success']);
+                    }
+                    ?>
+                <div style="overflow-y: scroll;max-height: 325px" >
+                    <table class="table table-bordered" >
+                        <thead>
+                        <tr>
+                            <td>Sl No.</td>
+                            <td>Image Name</td>
+                            <td>Uploaded On</td>
+                            <td>Action </td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php
+                        $i = 1;
+
+                        while ($row = $client_obj->fetch($file_list))
+                        {
+                            echo '<tr>';
+                            echo'<td>' . $i++ . '</td >';
+                            echo'<td><a  href="../uploads/gallery/' . $row['new_name'] . '" target="_blank">' . $row['upload_name'] . '</a></td>';
+                            echo'<td>' . $row['uploaded_on'] . '</td >';
+                            echo'<td><form name="upload_delete_form" method="post" ><input type="hidden" name="upload_id" value="'.$row['upload_id'].'" / > <button class="btn btn-danger btn-xs" name="remove_uploaded_file" onclick="return confirm(\'Do you want to Delete?\');"><i class="fa fa-trash-o fa-lg"></i></button></form></td>';
+                            echo'</tr>';
+
+                        }
+                        ?>
+
+                        </tbody>
+                    </table>
+                </div>
+                <?php }else{echo'<div class="alert alert-info">Empty list</div>';} ?>
+            </div>
+        </div>
+    </form>
+
+
+
+
+<footer>
+    <div class="footer">
+        <div class="row">
+            <div class="col-md-12">
+                <p><i class="fa fa-copyright"></i> Copyright 2020 CCC KARUNAGAPPALLY
+
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+</script>
+
+</body>
+
+</html>

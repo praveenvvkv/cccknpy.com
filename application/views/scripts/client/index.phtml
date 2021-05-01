@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+        <title>CCC KARUNAGAPPALLY</title>
+
+
+    <!-- Bootstrap core CSS -->
+
+    <!-- Additional CSS Files -->
+
+    <link rel="stylesheet" href="../assets/css/home.css">
+    <link rel="stylesheet" href="../assets/css/owl.css">
+    
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <link rel="stylesheet" href="../assets/css/fontawesome.css">
+
+	<link href="../assets/css/editor.css" type="text/css" rel="stylesheet"/>
+	
+	
+<link rel="stylesheet" href="../assets/js/plugin/datatables/jquery.dataTables.css">
+<script src="../assets/js/plugin/datatables/jquery.dataTables.min.js"></script>
+<script src="../assets/js/plugin/datatables/jquery.dataTables.js"></script>
+
+<script type="text/javascript" charset="utf-8">
+	$(document).ready(function() {
+		$('#dataTable').dataTable( {
+				"bProcessing": true,
+				"bServerSide": true,
+				"sAjaxSource": "../ajax/datatables/msg_list.php","oLanguage": {
+					"oPaginate": {
+						"sFirst": "First page"
+					}
+				},
+				"aaSorting": [ [0,'desc'] ]
+			}
+		);
+	} );
+</script>
+		
+		
+<style>
+
+
+   
+
+   
+    .footer {
+
+        position: relative;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #000000;
+        color: white;
+        text-align: center;
+    }
+
+     /* Dropdown Button */
+    .dropbtn {
+      color: white;
+      font-size: 16px;
+      border: none;
+    }
+    
+    /* The container <div> - needed to position the dropdown content */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    
+    /* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    
+    /* Links inside the dropdown */
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    
+    /* Change color of dropdown links on hover */
+    .dropdown-content a:hover {background-color: #ddd;}
+    
+    /* Show the dropdown menu on hover */
+    .dropdown:hover .dropdown-content {display: block;}
+    
+    /* Change the background color of the dropdown button when the dropdown content is shown */
+    .dropdown:hover .dropbtn {background-color: #3e8e41;} 
+
+
+</style>
+    
+
+</head>
+
+
+
+<body>
+
+
+<!--header-->
+<header class="main-header clearfix" role="header">
+    <div class="logo">
+        <a href="#"><em>CCC</em> KARUNAGAPPALLY</a>
+    </div>
+    <span style="float:right;margin:30px 30px 0px 0px"><a href="../index/signout">Sign Out</a></span>
+
+</header>
+
+    <br><br><br><br><br>
+    
+     <div class="dropdown" style="float:right;margin-right:100px">
+      <button class="dropbtn btn btn-success btn-small">Go to</button>
+      <div class="dropdown-content">
+        <a href="notification-list">Notification List</a>
+        <a href="gallery">Gallery</a>
+          <a href="registration">Registration List</a>
+      </div>
+    </div> 
+<legend style="padding-left:30px">Message List</legend>
+<div class="well add_btn" style="margin:20px;overflow-x:scroll;">
+                    <table id="dataTable" class="table table-striped table-hover table-bordered " borden="1">
+                    <thead>
+                    <tr>
+                        <th> Message ID </th>
+                        <th> Name  </th>
+                        <th> Email  </th>
+                        <th> Message </th>
+                        <th> Message On </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td colspan="5">Loading Data from Server</td>
+                    </tr>
+                    </tbody>
+                </table>
+                </div>
+
+
+
+<footer>
+    <div class="footer">
+        <div class="row">
+            <div class="col-md-12">
+                <p><i class="fa fa-copyright"></i> Copyright 2021 CCC KARUNAGAPPALLY
+
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script type="text/javascript">
+
+    // DO NOT REMOVE : GLOBAL FUNCTIONS!
+    // pageSetUp();
+
+    // PAGE RELATED SCRIPTS
+
+    loadDataTableScripts();
+    function loadDataTableScripts() {
+
+        loadScript("../assets/js/plugin/datatables/jquery.dataTables-cust.min.js", dt_2);
+
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+
+
+
+
+
+.info-box {
+    display: inline-flex;
+    line-height: 2;
+}
+
+.info-box .c-box {
+    padding-left: 10px;
+}
+
+
+.info-box .c-box .title {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1;
+    top: 15px;
+    position: relative;
+    color: #fff;
+
+}
+.info-box .c-box .desc {
+    font-display: swap;
+    color: #fff;
+}
+
+#img1 {display:block;}
+#img2 {display:none}
+
+@media all and (max-width: 499px) {
+    #img1 {display: none;}
+    #img2 {display: block;}
+}
+
+

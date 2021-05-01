@@ -1,0 +1,81 @@
+	/*
+  	Flaticon icon font: Flaticon
+  	Creation date: 06/11/2018 07:10
+  	*/
+
+@font-face {
+  font-family: "Flaticon";
+  src: url("../fonts/Flaticon.eot");
+  src: url("../fonts/Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("../fonts/Flaticon.woff") format("woff"),
+       url("../fonts/Flaticon.ttf") format("truetype"),
+       url("../fonts/Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+  font-family: Flaticon;
+        font-size: 20px;
+font-style: normal;
+}
+
+.flaticon-bed:before { content: "\f100"; }
+.flaticon-house:before { content: "\f101"; }
+.flaticon-selection:before { content: "\f102"; }
+.flaticon-bathtub:before { content: "\f103"; }
+.flaticon-apartment:before { content: "\f104"; }
+.flaticon-house-1:before { content: "\f105"; }
+.flaticon-unlocked:before { content: "\f106"; }
+.flaticon-avatar:before { content: "\f107"; }
+.flaticon-commerce:before { content: "\f108"; }
+.flaticon-support:before { content: "\f109"; }
+.flaticon-hotel:before { content: "\f10a"; }
+.flaticon-handshake:before { content: "\f10b"; }
+.flaticon-015-doctor:before {
+  content: "\e002";
+}
+.flaticon-016-stethoscope:before {
+  content: "\e003";
+}
+.flaticon-017-multiple-users-silhouette:before {
+  content: "\e004";
+}
+.flaticon-018-hospital:before {
+  content: "\e005";
+}
+.flaticon-019-ribbon:before {
+  content: "\e006";
+}
+.flaticon-020-ribbon-1:before {
+  content: "\e007";
+}
+.flaticon-021-dna:before {
+  content: "\e008";
+}
+.flaticon-022-dna-1:before {
+  content: "\e009";
+}
+.flaticon-023-microscope:before {
+  content: "\e00a";
+}
+.flaticon-024-surgery:before {
+  content: "\e00b";
+}
+.flaticon-025-iv-pole:before {
+  content: "\e00c";
+}
+.flaticon-026-blood-drop:before {
+  content: "\e00d";
+}
+.flaticon-027-hospital-1:before {
+  content: "\e00e";
+}
